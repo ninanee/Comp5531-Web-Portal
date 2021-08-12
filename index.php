@@ -41,6 +41,7 @@
 }
 .button1 {background-color: #293250;} 
 .button2 {background-color: #4CAF50;}
+.button3 {background-color: #DA70D6}
 </style>
 <body>
   <div class = "container">
@@ -50,7 +51,8 @@
 
     <p>Please login if you already have an account, otherwise you may register</p>
     <a class = "button button1" href="./login.php">Login</a>
-    <a class = "button button2" href="./registerEmployer.php">Register</a>
+    <a class = "button button2" href="./registerEmployer.php">Register For Employers</a>
+    <a class = "button button3" href="./registerEmployee.php">Register For Job Seekers</a>
   </div>
 
 </body>

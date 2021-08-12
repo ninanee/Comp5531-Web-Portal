@@ -40,17 +40,17 @@
 
     /* Extra style for the cancel button (red) */
     .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
     }
 
     /* Add padding to containers */
     .container {
-    padding: 16px;
+        padding: 16px;
     }
     .headerText{
-        background-color:#f44336;
+        background-color:#87CEEB;
         border-radius: 8px;
         border: 2px solid #ccc;
         text-align:center;
@@ -67,27 +67,27 @@
 <body>
 <form action="action_page.php" method="post">
     <div class="container headerText">
-        <h1>Register Employer</h1>
+        <h1>Register Employee</h1>
     </div>
 
     <div class="container">
+        <label for="first_name"><b>First Name</b></label>
+        <input type="text" name="first_name">
+
+        <label for="last_name"><b>Last Name</b></label>
+        <input type="text" name="last_name">
+
         <label for="username"><b>Username</b></label>
         <input type="text"  name="username" required>
 
         <label for="email"><b>Email Address</b></label>
         <input type="text" name="email" required>
 
-
         <label for="phone"><b>Phone Number</b></label>
         <input type="text" name="phone" required>
 
-
         <label for="emp_name"><b>Employer Name</b></label>
         <input type="text" name="emp_name" required>
-
-
-        <label for="desc"><b>Description</b></label>
-        <input type="text" name="desc">
 
 
         <label for="psw"><b>Password</b></label>
