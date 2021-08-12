@@ -84,11 +84,11 @@
 
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input type="password" name="psw" required>
 
 
         <label for="con_psw"><b>Confirm Password</b></label>
-        <input type="password" placeholder="Enter Password" name="con_psw" required>
+        <input type="password" name="con_psw" required>
 
 
         <button type="submit">Register</button>
