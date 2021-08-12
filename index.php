@@ -50,7 +50,7 @@
 
     <p>Please login if you already have an account, otherwise you may register</p>
     <a class = "button button1" href="./login.php">Login</a>
-    <a class = "button button2" href="./register.php">Register</a>
+    <a class = "button button2" href="./registerEmployer.php">Register</a>
   </div>
 
 </body>
