@@ -35,7 +35,9 @@
         <button class="registerBtn"><a href="./registerEmployee.php">Register For Job Seekers</a></button>
       </li> 
     </ul>
+    <div class="copyright">Created by: group xic55311</div>
   </div>
+
 
 </body>
 </html>

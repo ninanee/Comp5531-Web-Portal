@@ -11,8 +11,6 @@
 <body>
 <form action="action_page.php" method="post">
     <h1>Register Employee</h1>
-
-    <div class="container">
         <label for="first_name"><b>First Name</b></label>
         <input type="text" name="first_name">
 
@@ -36,7 +34,6 @@
 
 
         <button class="loginBtn" type="submit">Register</button>
-    </div>
 
     </form>
 </body>

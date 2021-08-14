@@ -10,7 +10,6 @@
 <body>
 <form action="action_page.php" method="post">
         <h1>Register Employer</h1>
-    <div class="container">
         <label for="username"><b>Username</b></label>
         <input type="text"  name="username" required>
 
@@ -39,7 +38,6 @@
 
 
         <button class="loginBtn" type="submit">Register</button>
-    </div>
 
     </form>
 </body>
