@@ -101,8 +101,8 @@ CREATE TABLE Payment (
         REFERENCES User (UserId)
 );
 
-CREATE TABLE PayMenthod (
-    Paymthod_ID INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE PayMethod (
+    Paymethod_ID INT NOT NULL AUTO_INCREMENT,
     Card_Number CHAR(16) DEFAULT NULL,
     CVV_Number CHAR(3) DEFAULT NULL,
     ExpireDate DATE DEFAULT NULL,
@@ -110,21 +110,21 @@ CREATE TABLE PayMenthod (
     AutoManual BOOL,
     UserId INT NOT NULL,
     Payment_ID INT,
-    PRIMARY KEY (Paymthod_ID),
+    PRIMARY KEY (Paymethod_ID),
     FOREIGN KEY (UserId)
         REFERENCES User (UserId),
     FOREIGN KEY (Payment_ID)
         REFERENCES Payment (Payment_ID)
 );
 
-CREATE TABLE PadInformation (
+CREATE TABLE PayInformation (
     AccountNumber INT(10) UNSIGNED DEFAULT NULL,
     BranchNumber INT(8) UNSIGNED DEFAULT NULL,
     InstituteNumber INT(5) UNSIGNED DEFAULT NULL,
     PayMethod_ID INT(11) NOT NULL,
     PRIMARY KEY (PayMethod_ID),
     FOREIGN KEY (PayMethod_ID)
-        REFERENCES PayMenthod (Paymthod_ID)
+        REFERENCES PayMethod (Paymthod_ID)
         ON DELETE CASCADE
 );
 
