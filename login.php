@@ -4,13 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login | Web Portal</title>
 </head>
 
 <style>
+/* reset website css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+
+/* change font family */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
     /* Bordered form */
 form {
-  border: 3px solid #f1f1f1;
+  border: 1px solid #f1f1f1;
+  box-shadow: 0px 0px 1px 1px #f1f1f1;
+  width: 500px;
+  margin: 4rem auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 1rem auto;
 }
 
 /* Full-width inputs */
@@ -21,11 +64,14 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 8px;
 }
 
 /* Set a style for all buttons */
 button {
   background-color: #04AA6D;
+  font-size: 16px;
+  border-radius: 8px;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -57,6 +103,11 @@ span.psw {
   padding-top: 16px;
 }
 
+.footer {
+  background-color:#f1f1f1;
+  border-radius: 8px;
+}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {
@@ -70,11 +121,9 @@ span.psw {
 </style>
 <body>
     <form action="action_page.php" method="post">
-    <div class="container">
         <h1>Login</h1>
-    </div>
 
-    <div class="container">
+      <div class="container">
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required>
 
@@ -85,12 +134,12 @@ span.psw {
         <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
-    </div>
+      </div>
 
-    <div class="container" style="background-color:#f1f1f1">
+      <div class="footer container">
         <button type="button" class="cancelbtn">Cancel</button>
         <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
+      </div>
     </form>
 </body>
 </html>
