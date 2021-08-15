@@ -25,13 +25,13 @@
     <h2>Please login if you already have an account, otherwise you may register</h2>
     <ul>
       <li>
-        <button class="loginBtn"><a href="./login.php">Login</a></button>
+      <a href="./login.php"><button class="loginBtn">Login</button></a>
       </li>
       <li>
-        <button class="registerBtn"><a href="./registerEmployer.php">Register For Employers</a></button>
+      <a href="./registerEmployer.php"><button class="registerBtn">Register For Employers</button></a>
       </li>
       <li>
-        <button class="registerBtn"><a href="./registerEmployee.php">Register For Job Seekers</a></button>
+      <a href="./registerEmployee.php"><button class="registerBtn">Register For Job Seekers</button></a>
       </li> 
     </ul>
     <button class="adminLoginBtn"><a href="./adminLogin.php">Admin Login</a></button>

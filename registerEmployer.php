@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="main.css" type="text/css" >
 </head>
 <body>
-<form action="action_page.php" method="post">
+<form class="authForm" action="action_page.php" method="post">
         <h1>Register Employer</h1>
         <label for="username"><b>Username</b></label>
         <input type="text"  name="username" required>

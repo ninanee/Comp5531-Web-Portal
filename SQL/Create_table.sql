@@ -6,6 +6,7 @@ CREATE TABLE User (
     Phone_Number INT,
     Password VARCHAR(50) NOT NULL,
     Username VARCHAR(50) UNIQUE,
+    Value INT DEFAULT 0,
     PRIMARY KEY (UserId)
 );
 
@@ -17,6 +18,8 @@ CREATE TABLE Employer (
     EmMembershipStartTime TIMESTAMP DEFAULT NOW(),
     UserId INT NOT NULL,
     GenreEm VARCHAR(50),
+    EmployerStatus ENUM('normal', 'suffering') default 'normal',
+	FrozenTime date default null,
     PRIMARY KEY (Employer_ID),
     FOREIGN KEY (UserId)
         REFERENCES User (UserId)
@@ -48,6 +51,8 @@ CREATE TABLE Candidate (
     CanMembershipStartTime TIMESTAMP DEFAULT NOW(),
     UserId INT NOT NULL,
     GenreCan VARCHAR(50),
+	CandidateStatus ENUM('normal', 'suffering') default 'normal',
+	FrozenTime date default null,
     PRIMARY KEY (Candidate_ID),
     FOREIGN KEY (UserId)
         REFERENCES User (UserId)
