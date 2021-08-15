@@ -132,6 +132,28 @@ button:hover {
   opacity: 0.8;
 }
 
+form {
+  border: 1px solid #f1f1f1;
+  box-shadow: 0px 0px 1px 1px #f1f1f1;
+  border-radius: 8px;
+  margin: 4rem auto;
+  padding: 20px;
+}
+
+/* Full-width inputs */
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
 /* Index page */
 .indexContainer {
   padding: 40px;
@@ -153,14 +175,11 @@ ul {
   color: white;
 }
 
-.loginBtn > a {
+.loginBtn {
   font-size: 20px;
 }
-.loginBtn > a:visited {
-  color: white;
-}
 
-.registerBtn > a {
+.registerBtn {
   color: #293250;
   font-size: 20px;
 }
@@ -183,27 +202,10 @@ ul {
 .copyright {
   margin-top: 1rem;
 }
-/* Bordered form */
-form {
-  border: 1px solid #f1f1f1;
-  box-shadow: 0px 0px 1px 1px #f1f1f1;
-  width: 500px;
-  margin: 4rem auto;
-  padding: 20px;
-}
 
-/* Full-width inputs */
-input[type="text"],
-input[type="password"],
-input[type= "number"],
-textarea {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  border-radius: 8px;
+/* Login Page */
+.authForm {
+  width: 500px;
 }
 
 /* Extra style for the cancel button (red) */
@@ -216,12 +218,6 @@ textarea {
 /* The "Forgot password" text */
 span.psw {
   float: right;
-  padding-top: 16px;
-}
-
-.logout {
-  width: auto;
-  background-color: #f1f1f1;
   padding-top: 16px;
 }
 
@@ -244,4 +240,26 @@ span.psw {
 th, td {
   padding: 15px;
   text-align: left;
+}
+/* Admin Dashboard */
+.adminDashboardWrapper {
+  margin: auto;
+  width: 60%;
+}
+
+.subWrapper {
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 3rem;
+}
+.adminForm {
+  width: 80%;
+}
+
+.logout {
+  background-color: #f1f1f1;
+  color: #293250;
+  width: 8em;
+  float: right;
 }
