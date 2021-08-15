@@ -94,6 +94,9 @@ ol,
 ul {
   list-style: none;
 }
+a {
+  text-decoration: none;
+}
 
 /* change font family */
 body {
@@ -107,7 +110,7 @@ h1 {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 0.8em;
 }
 
@@ -133,12 +136,13 @@ button:hover {
 .indexContainer {
   padding: 40px;
   text-align: center;
+  width: 600px;
+  margin: auto;
 }
 
 ul {
   margin: auto;
   padding: 10px;
-  width: 600px;
   border: 1px solid lightgrey;
   border-radius: 8px;
   box-shadow: 0 0 2px 1px lightgrey;
@@ -150,7 +154,6 @@ ul {
 }
 
 .loginBtn > a {
-  text-decoration: none;
   font-size: 20px;
 }
 .loginBtn > a:visited {
@@ -159,8 +162,17 @@ ul {
 
 .registerBtn > a {
   color: #293250;
-  text-decoration: none;
   font-size: 20px;
+}
+
+.adminLoginBtn {
+  background: none;
+  color: #293250;
+  text-align: right;
+}
+
+.adminLoginBtn a:visit {
+  color: #293250;
 }
 
 .copyright {
@@ -197,6 +209,12 @@ input[type="password"] {
 /* The "Forgot password" text */
 span.psw {
   float: right;
+  padding-top: 16px;
+}
+
+.logout {
+  width: auto;
+  background-color: #f1f1f1;
   padding-top: 16px;
 }
 
