@@ -20,7 +20,7 @@ CREATE TABLE Employer (
     PRIMARY KEY (Employer_ID),
     FOREIGN KEY (UserId)
         REFERENCES User (UserId)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (GenreEm)
         REFERENCES EmployerMembership (Genre)
         ON DELETE CASCADE
@@ -101,8 +101,8 @@ CREATE TABLE Payment (
         REFERENCES User (UserId)
 );
 
-CREATE TABLE PayMethod (
-    Paymethod_ID INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE PayMenthod (
+    Paymthod_ID INT NOT NULL AUTO_INCREMENT,
     Card_Number CHAR(16) DEFAULT NULL,
     CVV_Number CHAR(3) DEFAULT NULL,
     ExpireDate DATE DEFAULT NULL,
@@ -110,21 +110,21 @@ CREATE TABLE PayMethod (
     AutoManual BOOL,
     UserId INT NOT NULL,
     Payment_ID INT,
-    PRIMARY KEY (Paymethod_ID),
+    PRIMARY KEY (Paymthod_ID),
     FOREIGN KEY (UserId)
         REFERENCES User (UserId),
     FOREIGN KEY (Payment_ID)
         REFERENCES Payment (Payment_ID)
 );
 
-CREATE TABLE PayInformation (
+CREATE TABLE PadInformation (
     AccountNumber INT(10) UNSIGNED DEFAULT NULL,
     BranchNumber INT(8) UNSIGNED DEFAULT NULL,
     InstituteNumber INT(5) UNSIGNED DEFAULT NULL,
     PayMethod_ID INT(11) NOT NULL,
     PRIMARY KEY (PayMethod_ID),
     FOREIGN KEY (PayMethod_ID)
-        REFERENCES PayMethod (Paymthod_ID)
+        REFERENCES PayMenthod (Paymthod_ID)
         ON DELETE CASCADE
 );
 

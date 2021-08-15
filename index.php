@@ -16,44 +16,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web Portal</title>
+    <link rel="stylesheet" href="main.css" type="text/css" >
 </head>
-<style>
-.button {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 8px;
-  width: 50%;
-  cursor: pointer;
-}
-
-
-.container{
-  padding: 40px;
-  border: 3px solid #f1f1f1;
-  text-align:center;
-}
-.button1 {background-color: #293250;} 
-.button2 {background-color: #4CAF50;}
-.button3 {background-color: #DA70D6}
-</style>
 <body>
-  <div class = "container">
+  <div class = "indexContainer">
     <h1>Welcome to the Job Portal</h1>
-
-    <br>
-
-    <p>Please login if you already have an account, otherwise you may register</p>
-    <a class = "button button1" href="./login.php">Login</a>
-    <a class = "button button2" href="./registerEmployer.php">Register For Employers</a>
-    <a class = "button button3" href="./registerEmployee.php">Register For Job Seekers</a>
+    <h2>Please login if you already have an account, otherwise you may register</h2>
+    <ul>
+      <li>
+        <button class="loginBtn"><a href="./login.php">Login</a></button>
+      </li>
+      <li>
+        <button class="registerBtn"><a href="./registerEmployer.php">Register For Employers</a></button>
+      </li>
+      <li>
+        <button class="registerBtn"><a href="./registerEmployee.php">Register For Job Seekers</a></button>
+      </li> 
+    </ul>
+    <button class="adminLoginBtn"><a href="./adminLogin.php">Admin Login</a></button>
+    <hr>
+    <div class="copyright">Created by: group xic55311</div>
   </div>
+
 
 </body>
 </html>
