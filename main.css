@@ -175,6 +175,11 @@ ul {
   color: #293250;
 }
 
+.postJob > a{
+  color: green !important;
+  width: 60px !important;
+}
+
 .copyright {
   margin-top: 1rem;
 }
@@ -234,4 +239,9 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
 }
