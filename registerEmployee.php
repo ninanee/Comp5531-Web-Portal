@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<form action="action_page.php" method="post">
+<form class="authForm" action="action_page.php" method="post">
     <h1>Register Employee</h1>
         <label for="first_name"><b>First Name</b></label>
         <input type="text" name="first_name">
