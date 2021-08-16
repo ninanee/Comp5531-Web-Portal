@@ -65,7 +65,13 @@
 
 </style>
 <body>
-<form action="action_page.php" method="post">
+<?php
+
+phpinfo();
+
+?>
+
+<form action="backend/employer_register_action.php" method="post">
     <div class="container headerText">
         <h1>Register Employer</h1>
     </div>
@@ -77,6 +83,8 @@
         <label for="email"><b>Email Address</b></label>
         <input type="text" name="email" required>
 
+        <label for="address"><b>Address</b></label>
+        <input type="text" name="address" required>
 
         <label for="phone"><b>Phone Number</b></label>
         <input type="text" name="phone" required>
@@ -101,6 +109,7 @@
         <button type="submit">Register</button>
     </div>
 
-    </form>
+</form>
+
 </body>
 </html>

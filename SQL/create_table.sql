@@ -9,6 +9,13 @@ CREATE TABLE User (
     PRIMARY KEY (UserId)
 );
 
+CREATE TABLE EmployerMembership (
+    Genre VARCHAR(50) NOT NULL,
+    MonthlyFee DECIMAL(10 , 2 ) NOT NULL,
+    MaxJobPost INT NOT NULL,
+    PRIMARY KEY (Genre)
+);
+
 CREATE TABLE Employer (
     Employer_ID INT NOT NULL AUTO_INCREMENT,
     Description VARCHAR(100),
@@ -24,13 +31,6 @@ CREATE TABLE Employer (
     FOREIGN KEY (GenreEm)
         REFERENCES EmployerMembership (Genre)
         ON DELETE CASCADE
-);
-
-CREATE TABLE EmployerMembership (
-    Genre VARCHAR(50) NOT NULL,
-    MonthlyFee DECIMAL(10 , 2 ) NOT NULL,
-    MaxJobPost INT NOT NULL,
-    PRIMARY KEY (Genre)
 );
 
 CREATE TABLE CandidateMembership (
@@ -102,7 +102,7 @@ CREATE TABLE Payment (
 );
 
 CREATE TABLE PayMethod (
-    Paymethod_ID INT NOT NULL AUTO_INCREMENT,
+    PayMethod_ID INT NOT NULL AUTO_INCREMENT,
     Card_Number CHAR(16) DEFAULT NULL,
     CVV_Number CHAR(3) DEFAULT NULL,
     ExpireDate DATE DEFAULT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE PayInformation (
     PayMethod_ID INT(11) NOT NULL,
     PRIMARY KEY (PayMethod_ID),
     FOREIGN KEY (PayMethod_ID)
-        REFERENCES PayMethod (Paymthod_ID)
+        REFERENCES PayMethod (PayMethod_ID)
         ON DELETE CASCADE
 );
 

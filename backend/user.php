@@ -1,5 +1,8 @@
 <?php
 
+require_once ("employer.php");
+require_once ("candidate.php");
+
 class User {
 
     private $db = null;
@@ -9,7 +12,7 @@ class User {
         $this->db = $db;
     }
 
-    public function findAll()
+    private function findAll()
     {
         $statement = "
             SELECT 
@@ -27,7 +30,7 @@ class User {
         }
     }
 
-    public function find($id)
+    private function find($id)
     {
         $statement = "
             SELECT 
@@ -47,7 +50,7 @@ class User {
         }    
     }
 
-    public function insert(Array $input)
+    private function insert(Array $input)
     {
         $statement = "
             INSERT INTO User 
@@ -63,15 +66,15 @@ class User {
                 'Address' => $input['Address'],
                 'Phone_number'  => $input['Phone_number'] ?? null,
                 'Password' => $input['Password'],
-                'Username' => $input['Username'] 
+                'Username' => $input['Username']
             ));
-            return $statement->rowCount();
+            return $this->db->insert_id;
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }    
     }
 
-    public function update($id, Array $input)
+    private function update($id, Array $input)
     {
         $statement = "
             UPDATE User
@@ -99,7 +102,7 @@ class User {
         }    
     }
 
-    public function delete($id)
+    private function delete($id)
     {
         $statement = "
             DELETE FROM User
@@ -113,6 +116,28 @@ class User {
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }    
+    }
+
+    public function processLogin($username, $password) {
+        $candidate = new Candidate($this->db);
+        $employer = new Employer($this->db);
+        $passwordHash = md5($password);
+        $query = "select * FROM User WHERE user_name = ? AND password = ?";
+        $paramType = "ss";
+        $paramArray = array($username, $passwordHash);
+        $memberResult = $this->db->select($query, $paramType, $paramArray);
+        if(!empty($memberResult)) {
+            $userId = $memberResult[0]["UserId"];
+            $_SESSION["userId"] = $userId;
+            if(!empty($candidate->find($userId))) {
+                $_SESSION["userGenre"] = "candidate";
+            }
+            if(!empty($employer->find($userId))) {
+                $_SESSION["userGenre"] = "employer";
+            }
+            return true;
+        }
+        return false;
     }
 }
 ?>
