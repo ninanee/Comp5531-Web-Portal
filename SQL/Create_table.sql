@@ -6,6 +6,7 @@ CREATE TABLE User (
     Phone_Number INT,
     Password VARCHAR(50) NOT NULL,
     Username VARCHAR(50) UNIQUE,
+    Value INT DEFAULT 0,
     PRIMARY KEY (UserId)
 );
 
@@ -24,10 +25,12 @@ CREATE TABLE Employer (
     EmMembershipStartTime TIMESTAMP DEFAULT NOW(),
     UserId INT NOT NULL,
     GenreEm VARCHAR(50),
+    EmployerStatus ENUM('normal', 'suffering') default 'normal',
+	FrozenTime date default null,
     PRIMARY KEY (Employer_ID),
     FOREIGN KEY (UserId)
         REFERENCES User (UserId)
-        ON DELETE CASCADE,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (GenreEm)
         REFERENCES EmployerMembership (Genre)
         ON DELETE CASCADE
@@ -48,6 +51,8 @@ CREATE TABLE Candidate (
     CanMembershipStartTime TIMESTAMP DEFAULT NOW(),
     UserId INT NOT NULL,
     GenreCan VARCHAR(50),
+	CandidateStatus ENUM('normal', 'suffering') default 'normal',
+	FrozenTime date default null,
     PRIMARY KEY (Candidate_ID),
     FOREIGN KEY (UserId)
         REFERENCES User (UserId)
@@ -101,8 +106,8 @@ CREATE TABLE Payment (
         REFERENCES User (UserId)
 );
 
-CREATE TABLE PayMethod (
-    PayMethod_ID INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE PayMenthod (
+    Paymthod_ID INT NOT NULL AUTO_INCREMENT,
     Card_Number CHAR(16) DEFAULT NULL,
     CVV_Number CHAR(3) DEFAULT NULL,
     ExpireDate DATE DEFAULT NULL,
@@ -110,21 +115,21 @@ CREATE TABLE PayMethod (
     AutoManual BOOL,
     UserId INT NOT NULL,
     Payment_ID INT,
-    PRIMARY KEY (Paymethod_ID),
+    PRIMARY KEY (Paymthod_ID),
     FOREIGN KEY (UserId)
         REFERENCES User (UserId),
     FOREIGN KEY (Payment_ID)
         REFERENCES Payment (Payment_ID)
 );
 
-CREATE TABLE PayInformation (
+CREATE TABLE PadInformation (
     AccountNumber INT(10) UNSIGNED DEFAULT NULL,
     BranchNumber INT(8) UNSIGNED DEFAULT NULL,
     InstituteNumber INT(5) UNSIGNED DEFAULT NULL,
     PayMethod_ID INT(11) NOT NULL,
     PRIMARY KEY (PayMethod_ID),
     FOREIGN KEY (PayMethod_ID)
-        REFERENCES PayMethod (PayMethod_ID)
+        REFERENCES PayMenthod (Paymthod_ID)
         ON DELETE CASCADE
 );
 

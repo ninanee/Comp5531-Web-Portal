@@ -1,5 +1,5 @@
 <?php
-    require_once ('employer.php');
+    require_once ('candidate.php');
     require_once ('user.php');
     require_once ("dbConnector.php");
 
@@ -9,32 +9,34 @@
     if (isset($_REQUEST['username'])) {
         // removes backslashes
         $user = new User($db);
-        $employer = new Employer($db);
+        $candidate = new Candidate($db);
         $username = $_REQUEST['username'];
+        $firstname = $_REQUEST['first_name'];
+        $lastname = $_REQUEST['last_name'];
         $email = $_REQUEST['email'];
         $phoneNumber = $_REQUEST['phone'];
-        $address = $_REQUEST['address'];
+        // $address = $_REQUEST['address'];
         $password = $_REQUEST['psw'];
         $membership = $_REQUEST['membership'];
         $userArray = array(
             'Email' => $email,
-            'Address' => $address,
+            'Address' => 'abc',
             'Phone_number'  => $phoneNumber,
             'Password' => $password,
             'Username' => $username
         ); 
         $user->insert($userArray);
-
-        $employerArray = array(
-            'Name' => $username,
-            'Emoloyer_Balance'  => 100,
+        $candidateArray = array(
+            'FirstName' => $firstname,
+            'LastName' => $lastname,
+            'Candidate_Balance'  => 100,
             'UserId' => 20,
-            'GenreEm' => $membership
+            'GenreCan' => $membership
         );
-        $employer->insert($employerArray);
-
+        $candidate->insert($candidateArray);
         header("Location: ../index.php");
         exit();
+        
         // $result   = mysqli_query($con, $query);
         // if ($result) {
         //     echo "<div class='form'>

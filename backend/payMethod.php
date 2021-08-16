@@ -1,6 +1,6 @@
 <?php
 
-class PayMethod {
+class PayMenthod {
 
     private $db = null;
 
@@ -15,7 +15,7 @@ class PayMethod {
             SELECT 
                 Paymethod_ID, Card_Number, CVV_Number, ExpireDate, DefaultCard, AutoManual, UserId, Payment_ID
             FROM
-                PayMethod;
+                PayMenthod;
         ";
 
         try {
@@ -33,7 +33,7 @@ class PayMethod {
             SELECT 
                 Paymethod_ID, Card_Number, CVV_Number, ExpireDate, DefaultCard, AutoManual, UserId, Payment_ID
             FROM
-                PayMethod
+                PayMenthod
             WHERE Paymethod_ID = ?;
         ";
 
@@ -50,7 +50,7 @@ class PayMethod {
     public function insert(Array $input)
     {
         $statement = "
-            INSERT INTO PayMethod 
+            INSERT INTO PayMenthod 
                 (Card_Number, CVV_Number, ExpireDate, DefaultCard, AutoManual, UserId, Payment_ID)
             VALUES
                 (:Card_Number, :CVV_Number, :ExpireDate, :DefaultCard, :AutoManual, :UserId, :Payment_ID);
@@ -76,7 +76,7 @@ class PayMethod {
     public function update($id, Array $input)
     {
         $statement = "
-            UPDATE PayMethod
+            UPDATE PayMenthod
             SET 
                 Card_Number = :Card_Number,
                 CVV_Number  = :CVV_Number,
@@ -108,7 +108,7 @@ class PayMethod {
     public function delete($id)
     {
         $statement = "
-            DELETE FROM PayMethod
+            DELETE FROM PayMenthod
             WHERE Paymethod_ID = :id;
         ";
 

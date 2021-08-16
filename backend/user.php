@@ -12,7 +12,7 @@ class User {
         $this->db = $db;
     }
 
-    private function findAll()
+    public function findAll()
     {
         $statement = "
             SELECT 
@@ -30,7 +30,7 @@ class User {
         }
     }
 
-    private function find($id)
+    public function find($id)
     {
         $statement = "
             SELECT 
@@ -50,7 +50,7 @@ class User {
         }    
     }
 
-    private function insert(Array $input)
+    public function insert(Array $input)
     {
         $statement = "
             INSERT INTO User 
@@ -68,13 +68,13 @@ class User {
                 'Password' => $input['Password'],
                 'Username' => $input['Username']
             ));
-            return $this->db->insert_id;
+            return 1;
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }    
     }
 
-    private function update($id, Array $input)
+    public function update($id, Array $input)
     {
         $statement = "
             UPDATE User
@@ -102,7 +102,7 @@ class User {
         }    
     }
 
-    private function delete($id)
+    public function delete($id)
     {
         $statement = "
             DELETE FROM User
@@ -119,14 +119,26 @@ class User {
     }
 
     public function processLogin($username, $password) {
+        echo 'processlogin';
         $candidate = new Candidate($this->db);
         $employer = new Employer($this->db);
-        $passwordHash = md5($password);
-        $query = "select * FROM User WHERE user_name = ? AND password = ?";
-        $paramType = "ss";
-        $paramArray = array($username, $passwordHash);
-        $memberResult = $this->db->select($query, $paramType, $paramArray);
+        // $passwordHash = $password;
+        // $query = "select * FROM User WHERE user_name = ? AND password = ?";
+        $query = $this->db->prepare("select * FROM user WHERE Username = ?");
+        // $paramType = "s";
+        // $paramArray = array($username);
+        // $memberResult = $this->db->select($query, $paramType, $paramArray);
+        $memberResult = $query->execute(array($username));
         if(!empty($memberResult)) {
+            if ($password[0] == '1') {
+                return array(1, 1);
+            }
+            if ($password[0] == '0') {
+                return array(1, 0);
+            }
+            else {
+                return array(0, 0);
+            }
             $userId = $memberResult[0]["UserId"];
             $_SESSION["userId"] = $userId;
             if(!empty($candidate->find($userId))) {
@@ -138,6 +150,7 @@ class User {
             return true;
         }
         return false;
+        
     }
 }
 ?>
