@@ -82,7 +82,7 @@ class Employer {
                 Emoloyer_Balance = :Emoloyer_Balance,
                 EmMembershipStartTime = :EmMembershipStartTime,
                 UserId = :UserId,
-                GenreEm = :GenreEm
+                GenreEm = :GenreEm,
             WHERE Employer_ID = :id;
         ";
 

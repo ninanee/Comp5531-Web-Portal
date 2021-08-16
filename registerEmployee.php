@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<form class="authForm" action="action_page.php" method="post">
+<form class="authForm" action="backend/employee_register_action.php" method="post">
     <h1>Register Employee</h1>
         <label for="first_name"><b>First Name</b></label>
         <input type="text" name="first_name">
@@ -32,6 +32,14 @@
         <label for="con_psw"><b>Confirm Password</b></label>
         <input type="password" name="con_psw" required>
 
+        <b>Select your membership level</b>
+        <br>
+        <input type="radio" id="html" name="membership" value="prime">
+        <label for="html">Prime</label><br>
+        <input type="radio" id="css" name="membership" value="gold">
+        <label for="css">Gold</label><br>
+        <input type="radio" id="javascript" name="membership" value="basic">
+        <label for="javascript">Basic</label>
 
         <button class="loginBtn" type="submit">Register</button>
 

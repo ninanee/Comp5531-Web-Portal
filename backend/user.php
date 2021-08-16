@@ -1,5 +1,8 @@
 <?php
 
+require_once ("employer.php");
+require_once ("candidate.php");
+
 class User {
 
     private $db = null;
@@ -63,9 +66,9 @@ class User {
                 'Address' => $input['Address'],
                 'Phone_number'  => $input['Phone_number'] ?? null,
                 'Password' => $input['Password'],
-                'Username' => $input['Username'] 
+                'Username' => $input['Username']
             ));
-            return $statement->rowCount();
+            return 1;
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }    
@@ -113,6 +116,41 @@ class User {
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }    
+    }
+
+    public function processLogin($username, $password) {
+        echo 'processlogin';
+        $candidate = new Candidate($this->db);
+        $employer = new Employer($this->db);
+        // $passwordHash = $password;
+        // $query = "select * FROM User WHERE user_name = ? AND password = ?";
+        $query = $this->db->prepare("select * FROM user WHERE Username = ?");
+        // $paramType = "s";
+        // $paramArray = array($username);
+        // $memberResult = $this->db->select($query, $paramType, $paramArray);
+        $memberResult = $query->execute(array($username));
+        if(!empty($memberResult)) {
+            if ($password[0] == '1') {
+                return array(1, 1);
+            }
+            if ($password[0] == '0') {
+                return array(1, 0);
+            }
+            else {
+                return array(0, 0);
+            }
+            $userId = $memberResult[0]["UserId"];
+            $_SESSION["userId"] = $userId;
+            if(!empty($candidate->find($userId))) {
+                $_SESSION["userGenre"] = "candidate";
+            }
+            if(!empty($employer->find($userId))) {
+                $_SESSION["userGenre"] = "employer";
+            }
+            return true;
+        }
+        return false;
+        
     }
 }
 ?>

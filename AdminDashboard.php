@@ -1,9 +1,14 @@
 
 <?php
-$db_host = "localhost";
-$db_name = "test";
-$db_user = "testaccount";
-$db_pass = "**";
+// $db_host = "localhost";
+// $db_name = "test";
+// $db_user = "testaccount";
+// $db_pass = "**";
+
+$db_host = "127.0.0.1:3306";
+$db_name = "final_project";
+$db_user = "root";
+$db_pass = "123456";
 
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 ?>
@@ -19,8 +24,8 @@ if (!$result1) {
 	exit;
 }
 
-	// var_dump($result);
-// ?>
+	var_dump($result);
+?>
 
 
 

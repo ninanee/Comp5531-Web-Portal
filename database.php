@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 /*Your MYSQL username is xic55311
 The name of the MYSQL server is xic5531.encs.concordia.ca

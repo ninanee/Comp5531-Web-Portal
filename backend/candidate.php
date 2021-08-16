@@ -61,8 +61,8 @@ class Candidate {
             $statement->execute(array(
                 'FirstName' => $input['FirstName'] ?? null,
                 'LastName' => $input['LastName'] ?? null,
-                'Candidate_Balance'  => $input['Candidate_Balance'],
-                'CanMembershipStartTime' => $input['CanMembershipStartTime'],
+                'Candidate_Balance'  => $input['Candidate_Balance'] ?? null,
+                'CanMembershipStartTime' => $input['CanMembershipStartTime'] ?? null,
                 'UserId' => $input['UserId'],
                 'GenreCan' => $input['GenreCan'] ?? null
             ));

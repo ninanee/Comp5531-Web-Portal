@@ -10,6 +10,13 @@ CREATE TABLE User (
     PRIMARY KEY (UserId)
 );
 
+CREATE TABLE EmployerMembership (
+    Genre VARCHAR(50) NOT NULL,
+    MonthlyFee DECIMAL(10 , 2 ) NOT NULL,
+    MaxJobPost INT NOT NULL,
+    PRIMARY KEY (Genre)
+);
+
 CREATE TABLE Employer (
     Employer_ID INT NOT NULL AUTO_INCREMENT,
     Description VARCHAR(100),
@@ -27,13 +34,6 @@ CREATE TABLE Employer (
     FOREIGN KEY (GenreEm)
         REFERENCES EmployerMembership (Genre)
         ON DELETE CASCADE
-);
-
-CREATE TABLE EmployerMembership (
-    Genre VARCHAR(50) NOT NULL,
-    MonthlyFee DECIMAL(10 , 2 ) NOT NULL,
-    MaxJobPost INT NOT NULL,
-    PRIMARY KEY (Genre)
 );
 
 CREATE TABLE CandidateMembership (

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="main.css" type="text/css" >
 </head>
 <body>
-    <form action="action_page.php" method="post">
+    <form action="backend/admin_login_action.php" method="post">
         <h1>Admin Login</h1>
 
       <div class="inputContainer">
