@@ -4,9 +4,22 @@ This is our web portal project, and written in PHP and HTML using CSS.
 
 It is connected to a MySQL server using SQL language.
 
+To run the website locally, do the following:
+   1. Clone this repo.
+   2. cd to the clone.
+   3. Install php and mysql.
+   4. Access your local mysql instance from terminal or a DBMS software of choice, and run the two .sql files inside the Database.
+   5. Edit the database.php file with your local mysql creds.
+   6. Go to localhost:8080 from your browser of choice.
+
 ## Contributors
 @ninanee
 @Zikstar
+
+## Screenshoots
+## Lgoin Page
+   ![image](https://user-images.githubusercontent.com/71697803/130803445-1948c1cb-6afb-4f55-b024-f5f7500e54c6.png)
+
 
 The Employer side:
 1. Employers have an admin login and a mechanism to verify credentials or forgot password.
